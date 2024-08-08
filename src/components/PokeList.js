@@ -224,11 +224,11 @@ export default function PokeList() {
                   sm={6}
                   md={4}
                   lg={3}
-                  key={pokemon.name}
+                  key={pokemon?.name}
                 >
                   <Card
                     component={Link}
-                    to={`pokemons/${pokemon.id}`}
+                    to={`pokemons/${pokemon?.id}`}
                     sx={{
                       width: "12rem",
                       height: "19rem",
@@ -260,16 +260,16 @@ export default function PokeList() {
                     </div>
                     <CardContent sx={{ paddingBottom: 0 }}>
                       <Typography variant="small" color="gray">
-                        #{`00${pokemon.id}`.slice(-3)}
+                        #{`00${pokemon?.id}`.slice(-3)}
                       </Typography>
                       <Typography variant="h5">
-                        {`${pokemon.name[0]}`.toUpperCase() +
-                          `${pokemon.name}`.slice(1)}
+                        {`${pokemon?.name?.[0]}`?.toUpperCase() +
+                          `${pokemon?.name?.slice(1)}`}
                       </Typography>
                     </CardContent>
                     <CardActions disableSpacing sx={{ padding: "1rem" }}>
                       <Stack direction="row" spacing={1}>
-                        {pokemon.types.map((type) => (
+                        {pokemon?.types?.map((type) => (
                           <PokeType type={type} key={type} />
                         ))}
                       </Stack>
